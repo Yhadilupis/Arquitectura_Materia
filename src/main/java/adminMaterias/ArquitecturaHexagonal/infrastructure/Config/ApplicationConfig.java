@@ -14,12 +14,12 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfig {
 
     @Bean
-    public MateriaService productService(MateriaRepositoryPort productRepositoryPort,
-            GetAdditionalMateriaUseCase getAdditionalProductUseCase) {
+    public MateriaService materiaService(MateriaRepositoryPort productRepositoryPort,
+            GetAdditionalMateriaUseCase getAdditionalMateriaUseCase) {
         return new MateriaService(
                 new CreateMateriaUseCaseImpl(productRepositoryPort),
                 new RetrieveMateriaUseCaseImpl(productRepositoryPort),
-                new UpdateMateriaUseCaseImpl(productRepositoryPort), getAdditionalProductUseCase,
+                new UpdateMateriaUseCaseImpl(productRepositoryPort), getAdditionalMateriaUseCase,
                 new DeleteMateriaUseCaseImpl(productRepositoryPort));
     }
 
@@ -29,7 +29,7 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public GetAdditionalMateriaUseCase getAdditionalProductUseCase(ExternalServicePort externalServicePort) {
+    public GetAdditionalMateriaUseCase getAdditionalMateriaUseCase(ExternalServicePort externalServicePort) {
         return new GetAdditionalMateriaUseCaseImpl(externalServicePort);
     }
 

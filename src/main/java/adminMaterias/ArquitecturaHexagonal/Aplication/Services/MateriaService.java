@@ -11,25 +11,25 @@ import java.util.Optional;
 @Service
 public class MateriaService implements CreateMateriaUseCase, RetrieveMAteriaUseCase, UpdateMateriaUseCase,
         GetAdditionalMateriaUseCase, DeleteMateriaUseCase {
-    private final CreateMateriaUseCase createProductUseCase;
+    private final CreateMateriaUseCase createMateriaUseCase;
     private final RetrieveMAteriaUseCase retrieveProductUseCase;
     private final UpdateMateriaUseCase updateMateriaUseCase;
-    private final GetAdditionalMateriaUseCase getAdditionalProductUseCase;
-    private final DeleteMateriaUseCase deleteProductUseCase;
+    private final GetAdditionalMateriaUseCase getAdditionalMateriaUseCase;
+    private final DeleteMateriaUseCase deleteMateriaUseCase;
 
-    public MateriaService(CreateMateriaUseCase createProductUseCase, RetrieveMAteriaUseCase retrieveProductUseCase,
-            UpdateMateriaUseCase updateMateriaUseCase, GetAdditionalMateriaUseCase getAdditionalProductUseCase,
-            DeleteMateriaUseCase deleteProductUseCase) {
-        this.createProductUseCase = createProductUseCase;
+    public MateriaService(CreateMateriaUseCase createMateriaUseCase, RetrieveMAteriaUseCase retrieveProductUseCase,
+            UpdateMateriaUseCase updateMateriaUseCase, GetAdditionalMateriaUseCase getAdditionalMateriaUseCase,
+            DeleteMateriaUseCase deleteMateriaUseCase) {
+        this.createMateriaUseCase = createMateriaUseCase;
         this.retrieveProductUseCase = retrieveProductUseCase;
         this.updateMateriaUseCase = updateMateriaUseCase;
-        this.getAdditionalProductUseCase = getAdditionalProductUseCase;
-        this.deleteProductUseCase = deleteProductUseCase;
+        this.getAdditionalMateriaUseCase = getAdditionalMateriaUseCase;
+        this.deleteMateriaUseCase = deleteMateriaUseCase;
     }
 
     @Override
-    public Materia CreateProduct(Materia materia) {
-        return createProductUseCase.CreateProduct(materia);
+    public Materia CreateMateria(Materia materia) {
+        return createMateriaUseCase.CreateMateria(materia);
     }
 
     @Override
@@ -38,23 +38,23 @@ public class MateriaService implements CreateMateriaUseCase, RetrieveMAteriaUseC
     }
 
     @Override
-    public boolean DeleteProduct(Long id) {
-        return deleteProductUseCase.DeleteProduct(id);
+    public boolean DeleteMateria(Long id) {
+        return deleteMateriaUseCase.DeleteMateria(id);
     }
 
     @Override
     public AdditionalMateriatInfo getAdditionalMateriaInfo(Long id) {
-        return getAdditionalProductUseCase.getAdditionalMateriaInfo(id);
+        return getAdditionalMateriaUseCase.getAdditionalMateriaInfo(id);
     }
 
     @Override
-    public Optional<Materia> GetProduct(Long id) {
-        return retrieveProductUseCase.GetProduct(id);
+    public Optional<Materia> GetMateria(Long id) {
+        return retrieveProductUseCase.GetMateria(id);
     }
 
     @Override
-    public List<Materia> GetAllProducts() {
-        return retrieveProductUseCase.GetAllProducts();
+    public List<Materia> getAllMateriass() {
+        return retrieveProductUseCase.getAllMateriass();
     }
 
 }

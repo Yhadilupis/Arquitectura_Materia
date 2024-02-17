@@ -11,41 +11,41 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/materias")
 @RequiredArgsConstructor
 public class MateriaController {
-    private final MateriaService productService;
+    private final MateriaService materiaService;
 
     @PostMapping
-    public ResponseEntity<Materia> createProduct(@RequestBody Materia materia) {
-        Materia createdProduct = productService.CreateProduct(materia);
+    public ResponseEntity<Materia> CreateMateria(@RequestBody Materia materia) {
+        Materia createdProduct = materiaService.CreateMateria(materia);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Materia> getProduct(@PathVariable Long id) {
-        return productService.GetProduct(id)
+    public ResponseEntity<Materia> GetMateria(@PathVariable Long id) {
+        return materiaService.GetMateria(id)
                 .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllProducts() {
-        return new ResponseEntity<>(productService.GetAllProducts(), HttpStatus.OK);
+    public ResponseEntity<?> getAllMateriass() {
+        return new ResponseEntity<>(materiaService.getAllMateriass(), HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Materia> updateMateria(@PathVariable Long id, @RequestBody Materia updatedProduct) {
-        return productService.updateMateria(id, updatedProduct)
+    public ResponseEntity<Materia> updateMateria(@PathVariable Long id, @RequestBody Materia updateMateria) {
+        return materiaService.updateMateria(id, updateMateria)
                 .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
-        return productService.DeleteProduct(id) ? new ResponseEntity<>(HttpStatus.OK)
+    public ResponseEntity<?> deleteMateria(@PathVariable Long id) {
+        return materiaService.DeleteMateria(id) ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/additionalInfo/{id}")
     public ResponseEntity<?> getAdditionalMateriatInfo(@PathVariable Long id) {
-        return new ResponseEntity<>(productService.getAdditionalMateriaInfo(id), HttpStatus.OK);
+        return new ResponseEntity<>(materiaService.getAdditionalMateriaInfo(id), HttpStatus.OK);
     }
 }

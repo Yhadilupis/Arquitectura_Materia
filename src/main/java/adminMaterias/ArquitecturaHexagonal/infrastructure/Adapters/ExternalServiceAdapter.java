@@ -15,7 +15,7 @@ public class ExternalServiceAdapter implements ExternalServicePort {
     }
 
     @Override
-    public AdditionalMateriatInfo getAdditionalProduct(Long id) {
+    public AdditionalMateriatInfo gMateriatInfo(Long id) {
         String apiUrl = "https://jsonplaceholder.typicode.com/todos/" + id;
         ResponseEntity<JsonPlaceHolderTodo> response = restTemplate.getForEntity(apiUrl, JsonPlaceHolderTodo.class);
         JsonPlaceHolderTodo todo = response.getBody();

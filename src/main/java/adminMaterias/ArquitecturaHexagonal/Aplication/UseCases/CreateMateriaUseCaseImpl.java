@@ -12,7 +12,7 @@ public class CreateMateriaUseCaseImpl implements CreateMateriaUseCase {
     }
 
     @Override
-    public Materia CreateProduct(Materia materia) {
+    public Materia CreateMateria(Materia materia) {
         return materiaRepositoryPort.save(materia);
     }
 }

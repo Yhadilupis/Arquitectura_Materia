@@ -16,12 +16,13 @@ public class RetrieveMateriaUseCaseImpl implements RetrieveMAteriaUseCase {
     }
 
     @Override
-    public Optional<Materia> GetProduct(Long id) {
+    public Optional<Materia> GetMateria(Long id) {
         return materiaRepositoryPort.findById(id);
     }
 
     @Override
-    public List<Materia> GetAllProducts() {
+    public List<Materia> getAllMateriass() {
         return materiaRepositoryPort.findAll();
     }
+
 }

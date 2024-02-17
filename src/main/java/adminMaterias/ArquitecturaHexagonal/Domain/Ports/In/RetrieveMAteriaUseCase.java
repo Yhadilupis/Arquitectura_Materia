@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RetrieveMAteriaUseCase {
-    Optional<Materia> GetProduct(Long id);
+    Optional<Materia> GetMateria(Long id);
 
-    List<Materia> GetAllProducts();
+    List<Materia> getAllMateriass();
 }

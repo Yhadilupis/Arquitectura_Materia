@@ -12,7 +12,7 @@ public class GetAdditionalMateriaUseCaseImpl implements GetAdditionalMateriaUseC
     }
 
     @Override
-    public AdditionalMateriatInfo getAdditionalMateriatInfo(Long id) {
-        return servicePort.getAdditionalProduct(id);
+    public AdditionalMateriatInfo getAdditionalMateriaInfo(Long id) {
+        return servicePort.gMateriatInfo(id);
     }
 }
